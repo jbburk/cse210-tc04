@@ -35,5 +35,7 @@ root                    (project root folder)
 
 ## Authors
 ---
-* TODO: Add your names and emails here
-Joshua Burk: jbburk@byui.edu
+* Joshua Burk: jbburk@byui.edu
+* Austin Howard: how18021@byui.edu
+* Caleb Lan:
+* Jacob Johnson: 
