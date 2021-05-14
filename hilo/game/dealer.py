@@ -42,20 +42,18 @@ class Dealer:
         Returns:
             number: The total points for the current throw.
         """
-        print(guess)
+        score = 0
         if self.new_card < self.next_card:
             if guess == "h": 
-                self.score += 100
+                score += 100
             else:
-                self.score -= 75
+                score -= 75
         else:
             if guess == "l":
-                self.score += 100
+                score += 100
             else:
-                self.score -= 75
-        return self.score
-
-        # return self.card.count(5) * 50 + self.card.count(1) * 100
+                score -= 75
+        return score
 
     def throw_card(self):
         """Throws the dice by randomly generating five new values. 
@@ -73,9 +71,3 @@ class Dealer:
         self.card.pop(self.new_card_index)
 
         self.next_card = self.card[random.randint(0,11)]
-
-        
-
-    # def turn(self):
-    #     while True:
-    #         new_card = self.card[random.randint(13)]

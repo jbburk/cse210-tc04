@@ -20,6 +20,7 @@ class Director:
         self.keep_playing = True
         self.score = 300
         self.dealer = Dealer()
+        self.guess = ""
 
     def start_game(self):
         """Starts the game loop to control the sequence of play.
@@ -29,8 +30,8 @@ class Director:
         """
         while self.keep_playing:
             self.get_inputs()
-            self.do_updates()
             self.do_outputs()
+        print("Thanks for playing!")
 
     def get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
@@ -39,10 +40,8 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        if self.dealer.can_throw(self.score) == True:
-            self.do_outputs
-        else:
-            print("You suck")
+
+        self.dealer.throw_card()
         
     
         
@@ -55,9 +54,10 @@ class Director:
         """
         print(f"\nYou pulled: {self.dealer.new_card}")
         self.guess = input("Higher or Lower? (H/L): ")
+        print(f"Next Card: {self.dealer.next_card}")
         self.do_updates()
         print(f"Your score is: {self.score}")
-        if self.dealer.can_throw():
+        if self.dealer.can_throw(self.score):
             choice = input("Draw again? [y/n] ")
             self.keep_playing = (choice == "y")
         else:
